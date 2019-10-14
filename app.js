@@ -1,3 +1,5 @@
+console.log('Starting API testserver...');
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -9,7 +11,7 @@ var indexRouter = require('./routes/index');
 var versionRouter = require('./routes/version');
 var profileRouter = require('./routes/profile');
 
-const Version = require('./sequelize');
+//const Version = require('./sequelize');
 
 var app = express();
 app.use(bodyParser.json());
@@ -50,9 +52,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+console.log('Testserver successfully started!');
+
+/*
 Version.create({
   name: 'GIP',
   value: '0.0.1'
 }).then(version => console.log(version));
+ */
 
 module.exports = app;
