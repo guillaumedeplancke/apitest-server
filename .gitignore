@@ -101,3 +101,6 @@ typings/
 
 # Visual Studio files
 .vs/
+
+# Config files
+config/db.json
