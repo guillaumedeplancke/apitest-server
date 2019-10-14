@@ -2,14 +2,17 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var versionRouter = require('./routes/version');
 var profileRouter = require('./routes/profile');
 
+const Version = require('./sequelize');
 
 var app = express();
+app.use(bodyParser.json());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -46,5 +49,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+Version.create({
+  name: 'GIP',
+  value: '0.0.1'
+}).then(version => console.log(version));
 
 module.exports = app;
