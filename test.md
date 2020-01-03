@@ -11,8 +11,8 @@ This a Node.js API which will do all communication with a mysql database for my 
     1. [Profile](#profile)
     1. [Meal](#meal)
 3. [Commands](#commands)
-    1. [Example](#example)
-    1. [Development](#command_list)
+    1. [Example](#command_example)
+    1. [Commands list](#command_list)
 
 ## Dependencies
 
